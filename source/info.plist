@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.willpuckett.cfp</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>63A8D707-EFF5-4A6E-BE8C-C5FDEACD1A90</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DD51E6FC-658C-47ED-889D-C99A7104D564</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D79EFC46-4EDE-4E15-B423-576A96CF3333</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Quoted form of POSIX Path</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D79EFC46-4EDE-4E15-B423-576A96CF3333</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>45C33B5C-4EC4-4328-9A66-D2E86C40AE95</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DD51E6FC-658C-47ED-889D-C99A7104D564</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>45C33B5C-4EC4-4328-9A66-D2E86C40AE95</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Will Puckett</string>
+	<key>description</key>
+	<string>copy path to frontmost finder window</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Copy Finder Path</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>45C33B5C-4EC4-4328-9A66-D2E86C40AE95</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>cfp</string>
+				<key>subtext</key>
+				<string>Hold ⌘ for quoted form...</string>
+				<key>text</key>
+				<string>Copy Finder Path</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>63A8D707-EFF5-4A6E-BE8C-C5FDEACD1A90</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+    tell application "Finder" 
+		set thisPath to POSIX path of (target of window 1 as alias)
+		return thisPath
+	end tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>DD51E6FC-658C-47ED-889D-C99A7104D564</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+    tell application "Finder" 
+		set thisPath to quoted form of POSIX path of (target of window 1 as alias)
+		return thisPath
+	end tell
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>D79EFC46-4EDE-4E15-B423-576A96CF3333</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>45C33B5C-4EC4-4328-9A66-D2E86C40AE95</key>
+		<dict>
+			<key>xpos</key>
+			<integer>660</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>63A8D707-EFF5-4A6E-BE8C-C5FDEACD1A90</key>
+		<dict>
+			<key>xpos</key>
+			<integer>270</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>D79EFC46-4EDE-4E15-B423-576A96CF3333</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>320</integer>
+		</dict>
+		<key>DD51E6FC-658C-47ED-889D-C99A7104D564</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string></string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
